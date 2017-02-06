@@ -10,7 +10,7 @@ Raspberry Pi 3, Raspbian Jessie, Python3, DS18B20+ sensors
 Wiring and testing information:
 https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi
 
-1. Load kernel modules
+1. Load kernel modules \n
 sudo modprobe w1-gpio
 sudo modprobe w1-therm
 -- these seem to load automatically on boot

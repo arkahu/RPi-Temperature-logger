@@ -10,7 +10,7 @@ Raspberry Pi 3, Raspbian Jessie, Python3, DS18B20+ sensors
 Wiring and testing information:
 https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi
 
-1. Load kernel modules
+- Load kernel modules
 ```
 sudo modprobe w1-gpio
 sudo modprobe w1-therm
@@ -26,7 +26,7 @@ cat /sys/bus/w1/devices/28-000008a260c3/w1_slave
 7a 01 4b 46 7f ff 06 10 0b t=23625
 ```
 
-2. Set ramdisk, so that SD card is not constantly written to avoid wearing
+- Set ramdisk, so that SD card is not constantly written to avoid wearing
 ```
 sudo mkdir /mnt/ramdisk
 sudo chmod ugo+rwx /mnt/ramdisk
@@ -37,6 +37,6 @@ tmpfs /mnt/ramdisk tmpfs defaults,noatime,nosuid,mode=0777,size=20m 0 0
 ```
 -- will give all rights to access these directories
 
-3. Download and modify scripts
+- Download and modify scripts
 readtemp.sh
 temperature_logger.py

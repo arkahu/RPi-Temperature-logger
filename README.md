@@ -35,8 +35,29 @@ Modify /etc/fstab by adding line:
 ```
 tmpfs /mnt/ramdisk tmpfs defaults,noatime,nosuid,mode=0777,size=20m 0 0
 ```
--- will give all rights to access these directories
+-- will give all rights to access this directory
 
 - Download and modify scripts
+```
 readtemp.sh
 temperature_logger.py
+```
+Change the sensor ID:s in "readtemp.sh".
+You may want to modify temperature_logger.py so that the outputFile points to a desired location.
+
+- Set cron so that these scripts are run at desired intervals
+```
+crontab -e
+```
+
+Add these lines to the end of crontab. Check that file paths match yours.
+```
+#save temperature measurements to a file in ramdisk, every other minute
+*/2 * * * * /home/pi/temperature/readtemp.sh >> /mnt/ramdisk/tempreadings.txt
+
+#rename temperature data at midnight
+59 23 * * * mv /mnt/ramdisk/tempreadings.txt /mnt/ramdisk/tempreadings_old.txt
+#process temperature data
+30 0 * * * python3 /home/pi/temperature_logger.py
+```
+

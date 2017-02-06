@@ -21,7 +21,6 @@ check your sensors:
 ```
 ls /sys/bus/w1/devices
 28-000008a260c3  28-000008a4a333  w1_bus_master1
-and data:
 cat /sys/bus/w1/devices/28-000008a260c3/w1_slave
 7a 01 4b 46 7f ff 06 10 0b : crc=0b YES
 7a 01 4b 46 7f ff 06 10 0b t=23625

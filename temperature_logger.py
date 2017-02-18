@@ -40,7 +40,6 @@ def handle_readings(a):
     output.append(''.join(sensor2data))
     
     return ' '.join(output)
-    
 
 TemperatureData = []
 
@@ -55,9 +54,8 @@ with open(inputFile) as fi:
             TemperatureData.append(handle_readings(T_reading))
             T_reading = []
 
-
-TemperatureData.append('\n')
 outStr = '\n'.join(TemperatureData)
+outStr = outStr + '\n'
 
 with open(outputFile, "w") as fo:
     fo.write(outStr)

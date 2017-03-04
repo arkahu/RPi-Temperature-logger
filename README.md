@@ -35,8 +35,9 @@ Modify /etc/fstab by adding line:
 ```
 tmpfs /mnt/ramdisk tmpfs defaults,noatime,nosuid,mode=0777,size=20m 0 0
 ```
--- will give all rights to access this directory
-I also recommend to put log files (/var/log) to tmpfs.
+-- will give all rights to access this directory.
+
+I also recommend to put log files (/var/log) to tmpfs since e.g. cron log is generated constantly.
 
 
 - Download and modify scripts

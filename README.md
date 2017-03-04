@@ -55,7 +55,7 @@ crontab -e
 Add these lines to the end of crontab. Check that file paths match yours.
 ```
 #save temperature measurements to a file in ramdisk, every other minute
-*/2 * * * * /home/pi/temperature/readtemp.sh >> /mnt/ramdisk/tempreadings.txt
+*/2 * * * * /home/pi/readtemp.sh >> /mnt/ramdisk/tempreadings.txt
 
 #rename temperature data at midnight
 59 23 * * * mv /mnt/ramdisk/tempreadings.txt /mnt/ramdisk/tempreadings_old.txt
@@ -68,9 +68,9 @@ This will append "tempreadings.txt" every 2nd minute and one minute to midnight 
 ## Uploading to Google sheets
 
 ## Plotting and viewing from local network
-Set web server on RPi. Easy choice is lighttpd, just install with ```sudo apt-get install lighttpd``` and if you have a hostname on your Pi then you can check the result by surfing to your-pi-hostname.local otherwise just use IP-address. Create a directory to user home directory e.g. /home/pi/www-server and change /etc/lighttpd/lighttpd.conf so that ```server.document-root        = "/home/pi/www-server"```points to your directory. Place index.html to this directory and restart lighttpd with ```sudo /etc/init.d/lighttpd restart```. 
+Set web server on RPi. Easy choice is lighttpd, just install with ```sudo apt-get install lighttpd``` and if you have a hostname on your Pi then you can check the result by surfing to your-pi-hostname.local otherwise just use IP-address. Create a directory to user home directory e.g. /home/pi/www-server and change /etc/lighttpd/lighttpd.conf so that ```server.document-root        = "/home/pi/www-server"```points to your directory. Place index.html to this directory and restart lighttpd with ```sudo /etc/init.d/lighttpd restart``` and it should now load the webpage from there. Alternatively you can modify user permissions to the default directory.
 
-
+Download ```TData_plotter.py``` and check that file paths are correct, imageFile should be made to the same directory as index.html. Set up cron so that new graph is created every day.
 
 
 

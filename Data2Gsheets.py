@@ -12,6 +12,8 @@ Oulu, Finland, 2017
 inputPath = '/home/pi/%y-%m-%d.txt'
 GoogleToken = '/home/pi/Hom...json'
 
+sheetName = 'HomeTemperatures'
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import datetime
@@ -26,7 +28,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(GoogleToken, scop
 gc = gspread.authorize(credentials)
 
 # Open a worksheet from spreadsheet
-sh = gc.open('HomeTemperatures')
+sh = gc.open(sheetName)
 wks= sh.get_worksheet(0)
 
 #Data format example

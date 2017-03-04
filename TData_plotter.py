@@ -9,7 +9,7 @@ Arttu Huttunen
 Oulu, Finland, 2017
 """
 
-imageFile = '/home/pi/www-server/Day_temperature.png'
+imageFile = '/home/pi/www-server/temperature_graph.png'
 #check inputFile path below
 
 

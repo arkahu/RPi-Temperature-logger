@@ -84,5 +84,9 @@ Easy choice is lighttpd, just install with ```sudo apt-get install lighttpd``` a
 
 Download ```TData_plotter.py``` and check that file paths are correct, imageFile should be made to the same directory as index.html. Set up cron so that new graph is created every day. You may have to install matplotlib to run this program.
 
-
+Setting cron to plot new graph at 00:40
+```
+#create plot from data
+40 0 * * * python3 /home/pi/temperature/TData_plotter.py
+```
 

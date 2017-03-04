@@ -63,3 +63,8 @@ Add these lines to the end of crontab. Check that file paths match yours.
 ## Outcome
 This will append "tempreadings.txt" every 2nd minute and one minute to midnight will rename this file. Half hour past midnight the renamed file is read by the python script, which will make file "17-02-05.txt" (YY-MM-DD) containing the days readings formatted as "17-02-05 23:58:01 23.500 19.187" line by line.
 
+## Uploading to Google sheets
+
+## Plotting and viewing from local network
+
+

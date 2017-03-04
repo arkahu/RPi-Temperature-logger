@@ -74,7 +74,13 @@ https://docs.google.com/spreadsheets/d/1h-HD_iG81MUDSRdp3ZJPKb_f73PZqN_-Zq4ERelT
 
 Log in to https://console.developers.google.com/ and create a project and get an access token (json file). Create a Google sheet with some name e.g. Temperatures. Give modify access to this sheet for the email address mentioned in the token.
 
-Download ```Data2Gsheets.py```, check file names for input file, token and sheetname. Set up cron to upload data once per day.
+Download ```Data2Gsheets.py```, check file names for input file, token and sheetname. 
+
+Set up cron to upload data once per day at 00:50.
+```
+#send data to Google sheets
+50 0 * * * python3 /home/pi/Data2Gsheets.py
+```
 
 ## Plotting and viewing from local network
 
@@ -82,11 +88,11 @@ Download ```Data2Gsheets.py```, check file names for input file, token and sheet
 
 Easy choice is lighttpd, just install with ```sudo apt-get install lighttpd``` and if you have a hostname on your Pi then you can check the result by surfing to your-pi-hostname.local otherwise just use IP-address. Create a directory to user home directory e.g. /home/pi/www-server and change /etc/lighttpd/lighttpd.conf so that ```server.document-root        = "/home/pi/www-server"```points to your directory. Place ```index.html``` to this directory and restart lighttpd with ```sudo /etc/init.d/lighttpd restart``` and it should now load the webpage from there. Alternatively you can modify user permissions to the default directory.
 
-Download ```TData_plotter.py``` and check that file paths are correct, imageFile should be made to the same directory as index.html. Set up cron so that new graph is created every day. You may have to install matplotlib to run this program.
+Download ```TData_plotter.py``` and check that file paths are correct, imageFile should be made to the same directory as index.html. You may have to install matplotlib to run this program.
 
-Setting cron to plot new graph at 00:40
+Setting cron to plot new graph at 00:40.
 ```
 #create plot from data
-40 0 * * * python3 /home/pi/temperature/TData_plotter.py
+40 0 * * * python3 /home/pi/TData_plotter.py
 ```
 

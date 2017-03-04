@@ -66,13 +66,14 @@ Add these lines to the end of crontab. Check that file paths match yours.
 This will append "tempreadings.txt" every 2nd minute and one minute to midnight will rename this file. Half hour past midnight the renamed file is read by the python script, which will make file "17-02-05.txt" (YY-MM-DD) containing the days readings formatted as "17-02-05 23:58:01 23.500 19.187" line by line.
 
 ## Uploading to Google sheets
-Using gspread to upload data to Google sheets with access token.
+Using ```gspread``` to upload data to Google sheets with access token.
 https://docs.google.com/spreadsheets/d/1h-HD_iG81MUDSRdp3ZJPKb_f73PZqN_-Zq4ERelTpAM/edit#gid=0
 
 - Get a google account and access token
-Log in to https://console.developers.google.com/ and create a project and get an access token (json file).
 
-Place the token to the same directory as 
+Log in to https://console.developers.google.com/ and create a project and get an access token (json file). Create a Google sheet with some name e.g. Temperatures. Give modify access to this sheet for the email address mentioned in the token.
+
+Place the token to the same directory as ```Data2Gsheets.py```, check file names and sheetname. Set up cron to upload data once per day.
 
 ## Plotting and viewing from local network
 Set web server on RPi. Easy choice is lighttpd, just install with ```sudo apt-get install lighttpd``` and if you have a hostname on your Pi then you can check the result by surfing to your-pi-hostname.local otherwise just use IP-address. Create a directory to user home directory e.g. /home/pi/www-server and change /etc/lighttpd/lighttpd.conf so that ```server.document-root        = "/home/pi/www-server"```points to your directory. Place ```index.html``` to this directory and restart lighttpd with ```sudo /etc/init.d/lighttpd restart``` and it should now load the webpage from there. Alternatively you can modify user permissions to the default directory.
